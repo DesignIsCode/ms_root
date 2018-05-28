@@ -5,4 +5,5 @@ package cn.zzq.msModule;
  * @Date 2018-05-28 15:08
  */
 public class User {
+    private  Long id;
 }
