@@ -1,0 +1,3 @@
+rootProject.name = 'ms_root'
+include 'ms_module'
+
