@@ -1,0 +1,12 @@
+apply plugin: 'war'
+
+configurations {
+    providedRuntime
+}
+
+dependencies {
+    compile project(":ms_service")
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version:"${springBootVersion}"
+    compile group: 'com.alibaba', name: 'druid', version:"${druid_version}"
+    compile group: 'mysql', name: 'mysql-connector-java', version:"${mysql_connector_java_version}"
+}

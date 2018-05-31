@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ms.mapper.ablecloud.BewinchDeviceInfoMapper">
+
+    <select id="getBewinchDeviceInfoByPhysicalId" parameterType="string"
+            resultType="bewinchDeviceInfo">
+        select * from bewinchdeviceinfo
+        <where>
+            physicalId = #{physicalId}
+        </where>
+    </select>
+
+    <select id="getAllBewinchDeviceInfos" resultType="bewinchDeviceInfo">
+		select * from bewinchdeviceinfo order by (physicalId + 0) asc
+	</select>
+
+    <insert id="insertBewinchDeviceInfosBatch" parameterType="list">
+        insert ignore into
+        bewinchdeviceinfo(physicalId,logicId,majorDomain,subDomain,subDomainName,devVersion,modVersion,ipAddress,macAddress,activeTime,country,province,city,
+        street,lastOnlineTime,status,acType,createTime) values
+        <foreach collection="deviceInfos" item="deviceInfo" index="index"
+                 separator=",">
+            (#{deviceInfo.physicalId},#{deviceInfo.logicId},#{deviceInfo.majorDomain},#{deviceInfo.subDomain},#{deviceInfo.subDomainName},#{deviceInfo.devVersion},#{deviceInfo.modVersion},
+            #{deviceInfo.ipAddress},#{deviceInfo.macAddress},#{deviceInfo.activeTime},#{deviceInfo.country},#{deviceInfo.province},
+            #{deviceInfo.city},#{deviceInfo.street},#{deviceInfo.lastOnlineTime},#{deviceInfo.status},#{deviceInfo.acType},#{deviceInfo.createTime})
+        </foreach>
+    </insert>
+
+</mapper>

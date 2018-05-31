@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ms.mapper.ablecloud.AbleCloudMemberMapper">
+
+    <resultMap type="ableCloudMember" id="ableCloudMemberMap">
+        <id column="uid" property="id" javaType="long" jdbcType="BIGINT"></id>
+        <result column="phone" property="phone" javaType="String" jdbcType="VARCHAR"/>
+        <result column="name" property="name" javaType="String" jdbcType="VARCHAR"/>
+        <result column="nickName" property="nickName" javaType="String" jdbcType="VARCHAR"/>
+        <result column="openId" property="openId" javaType="String" jdbcType="VARCHAR"/>
+        <result column="reserveOne" property="reserveOne" javaType="String" jdbcType="VARCHAR"/>
+        <result column="reserveTwo" property="reserveTwo" javaType="String" jdbcType="VARCHAR"/>
+        <result column="reserveThree" property="reserveThree" javaType="String" jdbcType="VARCHAR"/>
+        <result column="reserveFour" property="reserveFour" javaType="String" jdbcType="VARCHAR"/>
+        <result column="reserveFive" property="reserveFive" javaType="String" jdbcType="VARCHAR"/>
+        <result column="createTime" property="createTime"/>
+    </resultMap>
+
+    <insert id="insertAbleCloudMember" parameterType="list">
+        insert ignore into ablecloudmember(uid,phone,email,nickName,openId,reserveOne,reserveTwo,reserveThree,reserveFour,reserveFive,createTime) values
+        <foreach collection="ableCloudMembers" item="ableCloudMember" index="index" separator=",">
+            (#{ableCloudMember.id},#{ableCloudMember.phone},#{ableCloudMember.email},#{ableCloudMember.nickName},
+            #{ableCloudMember.openId},#{ableCloudMember.reserveOne},#{ableCloudMember.reserveTwo},#{ableCloudMember.reserveThree},
+            #{ableCloudMember.reserveFour},#{ableCloudMember.reserveFive},#{ableCloudMember.createTime})
+        </foreach>
+    </insert>
+
+    <select id="getAllAbleCloudMember" resultMap="ableCloudMemberMap">
+		select * from ablecloudmember order by uid
+	</select>
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ms.mapper.ablecloud.BewinchPropertyMapper">
+
+    <insert id="insertBewinchPropertyBatch" parameterType="list">
+        insert into bewinchproperty(physicalId,reportTime,rawWaterValue,cleanTotalWater,cleanWaterValue,deviceBreakdown,temperatureLock,handleWaterSpeed,
+        currentPumpADValue,todayCleanHotWater,currentPumpPWNValue,currentVoltageValue,firstFilterLifeTIme,forthFilterLifeTime,
+        measureWaterForever,thridFilterLifeTIme,todayCleanColdWater,secondFilterLifeTime,measureFetchWaterValue,afterLastFetchWaterTime,
+        firstFilterSurplusScale,thridFilterSurplusScale,fourthFilterSurplusScale,secondFilterSurplusScale,currentTotalCleanWaterValue,
+        currentFetchWaterRealityTemper,currentFetchWaterLockTemperature,snCode,reservePlace,createTime) values
+        <foreach collection="bewinchProperties" item="bewinchProperty" index="index" separator=",">
+            (#{bewinchProperty.physicalId},#{bewinchProperty.reportTime},#{bewinchProperty.rawWaterValue},#{bewinchProperty.cleanTotalWater},#{bewinchProperty.cleanWaterValue},
+            #{bewinchProperty.deviceBreakdown},#{bewinchProperty.temperatureLock},#{bewinchProperty.handleWaterSpeed},
+            #{bewinchProperty.currentPumpADValue},#{bewinchProperty.todayCleanHotWater},#{bewinchProperty.currentPumpPWNValue},
+            #{bewinchProperty.currentVoltageValue},#{bewinchProperty.firstFilterLifeTIme},#{bewinchProperty.forthFilterLifeTime},
+            #{bewinchProperty.measureWaterForever},#{bewinchProperty.thridFilterLifeTIme},#{bewinchProperty.todayCleanColdWater},
+            #{bewinchProperty.secondFilterLifeTime},#{bewinchProperty.measureFetchWaterValue},#{bewinchProperty.afterLastFetchWaterTime},
+            #{bewinchProperty.firstFilterSurplusScale},#{bewinchProperty.thridFilterSurplusScale},#{bewinchProperty.fourthFilterSurplusScale},
+            #{bewinchProperty.secondFilterSurplusScale},#{bewinchProperty.currentTotalCleanWaterValue},#{bewinchProperty.currentFetchWaterRealityTemper},
+            #{bewinchProperty.currentFetchWaterLockTemperature},#{bewinchProperty.snCode},#{bewinchProperty.reservePlace},#{bewinchProperty.createTime})
+        </foreach>
+    </insert>
+</mapper>

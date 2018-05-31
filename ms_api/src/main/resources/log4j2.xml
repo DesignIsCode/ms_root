@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+    <Properties>
+        <!--<Property name="fileName">${web:rootDir}/logs/ablecloud.log</Property>
+        <Property name="dirName">${web:rootDir}/logs</Property>-->
+        <Property name="fileName">C:\Users\kc2671\Desktop/logs/ablecloud.log</Property>
+        <Property name="dirName">C:\Users\kc2671\Desktop/logs</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+        </Console>
+        <RollingFile name="ms_roll" fileName="${fileName}" filePattern="${dirName}/$${date:yyyy-MM}/logBack-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout charset="UTF-8"
+                           pattern="%d{yyyy-MM-dd 'at' HH:mm:ss z} %-5level %class{36} %L %M - %msg%xEx%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="20MB"/>
+                <OnStartupTriggeringPolicy/>
+            </Policies>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="ERROR">
+            <AppenderRef ref="Console" />
+        </Root>
+        <Logger name="ms_back" level="INFO">
+            <Appender-ref ref="ms_roll"></Appender-ref>
+        </Logger>
+    </Loggers>
+</Configuration>

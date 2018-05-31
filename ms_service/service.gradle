@@ -1,0 +1,4 @@
+dependencies {
+    compile project(":ms_mapper")
+    compile project(":ms_tool")
+}

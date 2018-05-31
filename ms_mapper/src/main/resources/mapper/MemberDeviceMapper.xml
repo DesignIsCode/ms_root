@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ms.mapper.ablecloud.MemberDeviceMapper">
+
+    <insert id="insertMemberDevice" parameterType="list">
+        insert ignore into memberdevice(id,gatewayDeviceId,name,owner,physicalId,rootId,status,subDomainId,subDomainName,createTime) values
+        <foreach collection="memberDevices" item="memberDevice" index="index" separator=",">
+            (#{memberDevice.id},#{memberDevice.gatewayDeviceId},#{memberDevice.name},#{memberDevice.owner},#{memberDevice.physicalId},
+            #{memberDevice.rootId},#{memberDevice.status},#{memberDevice.subDomainId},#{memberDevice.subDomainName},#{memberDevice.createTime})
+        </foreach>
+    </insert>
+</mapper>

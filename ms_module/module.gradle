@@ -1,0 +1,4 @@
+dependencies {
+    compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: "${mybatis_springboot}"
+    compile group: 'org.mybatis', name: 'mybatis-typehandlers-jsr310', version: '1.0.2'
+}

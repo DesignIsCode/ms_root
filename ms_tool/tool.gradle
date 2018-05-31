@@ -1,0 +1,6 @@
+dependencies {
+    compile group: 'ablecloud', name: 'ac-bridge-api', version: '1.3.12'
+    compile group: 'ablecloud', name: 'ac-java-api', version: '1.7.6'
+    compile group: 'org.apache.commons', name: 'commons-configuration2', version: "${commons_configuration2_version}"
+
+}

@@ -2,4 +2,11 @@ rootProject.name = 'ms_root'
 include 'ms_module'
 include 'ms_mapper'
 include 'ms_service'
+include 'ms_tool'
+include 'ms_api'
+
+rootProject.children.each {
+    it.buildFileName = it.name + '.gradle' - 'ms_'
+}
+
 
