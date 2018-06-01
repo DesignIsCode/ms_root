@@ -7,6 +7,6 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
 
 mybatis:
-  type-aliases-package: org.ms.entity
+  type-aliases-package: org.ms.module
   mapper-locations:
   - classpath:mapper/*.xml

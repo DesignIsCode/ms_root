@@ -11,7 +11,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * @Author SuperAndy
  * @Date 2018-05-31 19:07
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "org.ms")
 @MapperScan("org.ms.mapper")
 @EnableScheduling
 public class Starter extends SpringBootServletInitializer {
